@@ -48,7 +48,7 @@ namespace BelaApi.Services
             if (cliente is null)
                 throw new Exception("Cliente não pode ser nulo!");
             var verCliente = await GetByEmailAsync(cliente.Email);
-            if (verCliente != null)
+            if (verCliente != null && verCliente.Email == cliente.Email)
                 await UpdateClienteAsync(cliente);
             else
             {

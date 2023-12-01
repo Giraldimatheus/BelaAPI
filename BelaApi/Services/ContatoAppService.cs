@@ -55,7 +55,7 @@ namespace BelaApi.Services
             var clienteConexao = await _clienteAppService.GetByEmailAsync(contato.EmailClienteConexao);
 
             //Se não for um contato Lead oriundo de indicação de cliente, o email de conexao será o Default
-            if (clienteConexao == null)
+            if (clienteConexao.Email == null)
                 contato.EmailClienteConexao = "belagricola@belagricola.com.br";
             else
                 contato.EmailClienteConexao = clienteConexao.Email;
